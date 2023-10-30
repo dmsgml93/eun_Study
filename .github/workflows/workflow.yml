@@ -1,7 +1,7 @@
 name: Staging # 워크플로 Action의 이름 임의로 지 정
 on: #어떠한 액션이 일어났어
   push:
-    branches: [main] #github main 브런치에 푸시 발생 시 실행 ( main 외 다른브런치 이용시 이름변경)
+    branches: [master] #github main 브런치에 푸시 발생 시 실행 ( main 외 다른브런치 이용시 이름변경)
 jobs: #jobs를 실행해라
   staging: #staging이라는 작업
     name: demo # 작업의 이름
