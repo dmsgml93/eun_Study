@@ -21,3 +21,14 @@ jobs: #jobs를 실행해라
       - name: Login to Amazon ECR # AWS-ECR 로그인
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: eun93 # ecr이름
+          IMAGE_TAG: demo-${{ github.run_number }} # git 커밋넘버를 이미지 이름 구분을 위해 넣어줌
+        run: |
+          docker build --no-cache --network host -t $ECR_REPOSITORY:$IMAGE_TAG -f dockerfile .
+          docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
