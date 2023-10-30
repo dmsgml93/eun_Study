@@ -14,8 +14,8 @@ jobs: #jobs를 실행해라
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # Github Secret 이름
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Github Secret 이름
+          aws-access-key-id: ${{ secrets.EUN_ACCESSKEY }} # Github Secret 이름
+          aws-secret-access-key: ${{ secrets.EUN_SECRETACCESSKEY }} # Github Secret 이름
           aws-region: ap-northeast-1 # AWS 리전 선택
       #AWS ECR(Elastic Container Registry)
       - name: Login to Amazon ECR # AWS-ECR 로그인
