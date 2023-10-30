@@ -1,4 +1,4 @@
-name: Staging # 워크플로 Action의 이름 임의로 지정
+name: Staging # 워크플로 Action의 이름 임의로 지 정
 on: #어떠한 액션이 일어났어
   push:
     branches: [main] #github main 브런치에 푸시 발생 시 실행 ( main 외 다른브런치 이용시 이름변경)
