@@ -21,5 +21,5 @@ COPY --from=build  /app/.next/static ./.next/static
 # 운영환경 Install
 RUN yarn install --production 
 
-EXPOSE 7878
+EXPOSE 3000
 CMD ["yarn", "start"]
